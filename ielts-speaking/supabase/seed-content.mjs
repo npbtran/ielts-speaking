@@ -1,0 +1,404 @@
+// Nội dung mẫu: 3 bài học (Part 1, 2, 3) + 1 đề thi thử.
+// Chạy: node supabase/build-seed.mjs  → tạo lại 02_seed.sql
+// Chủ đề chọn theo các đề được báo cáo trong kỳ thi tháng 9–12/2026.
+// Câu hỏi, câu trả lời mẫu là nội dung tự biên soạn.
+
+export const BATCH = '2026-11 · Đợt 2';
+
+export const lessons = [
+// ---------------------------------------------------------------------
+{
+  kind: 'lesson', part: 1, level: 'B1', topic: 'Studies & Tiredness',
+  title: 'Part 1 · Your studies and feeling tired',
+  summary: 'Trả lời Part 1 tự nhiên, đủ ý (2–4 câu) với công thức A-R-E: Answer – Reason – Example.',
+  content: {
+    objectives: [
+      'Trả lời câu hỏi Part 1 trong khoảng 15–25 giây, không trả lời cụt một câu.',
+      'Dùng công thức A-R-E (Answer – Reason – Example) và thêm ý so sánh quá khứ/hiện tại khi phù hợp.',
+      'Dùng tự nhiên 8–10 cụm từ về việc học, năng lượng và sự mệt mỏi.',
+      'Tránh các lỗi thì (hiện tại đơn/quá khứ) và lỗi mất âm cuối thường gặp.',
+    ],
+    warmup:
+`Làm nhanh với bạn cùng lớp hoặc tự nói trong 2 phút. Mỗi câu chỉ cần trả lời 1 câu ngắn — mục tiêu là "làm nóng" miệng, chưa cần hay.
+
+- What time did you get up today?
+- How many hours do you usually sleep?
+- What is the most tiring day of your week? Why?
+- Name three things that give you energy.
+
+Sau đó, chọn **một** câu và nói lại thành 3 câu (thêm lý do và ví dụ). Bạn sẽ thấy câu trả lời dài hơn mà không khó hơn.`,
+    vocabulary: [
+      { term: 'major in (something)', meaning: 'học chuyên ngành …', example: 'I major in information technology at Can Tho University.' },
+      { term: 'a heavy workload', meaning: 'khối lượng việc/bài nhiều', example: 'We have a heavy workload before the final exams.' },
+      { term: 'feel worn out / exhausted', meaning: 'kiệt sức (mạnh hơn "tired")', example: 'After four classes in a row, I feel completely worn out.' },
+      { term: 'stay up late', meaning: 'thức khuya', example: 'I sometimes stay up late to finish my assignments.' },
+      { term: 'take a power nap', meaning: 'chợp mắt 10–20 phút', example: 'I take a power nap after lunch to recharge.' },
+      { term: 'recharge my batteries', meaning: 'nạp lại năng lượng', example: 'Going for a walk helps me recharge my batteries.' },
+      { term: 'lose concentration', meaning: 'mất tập trung', example: 'When I am tired, I easily lose concentration in class.' },
+      { term: 'screen time', meaning: 'thời gian dùng màn hình', example: 'Too much screen time at night makes it hard to fall asleep.' },
+      { term: 'a hectic schedule', meaning: 'lịch trình bận rộn, dồn dập', example: 'Many students have a hectic schedule with study and part-time jobs.' },
+      { term: 'I used to … but now …', meaning: 'trước đây … nhưng bây giờ …', example: 'I used to sleep a lot, but now I rarely get eight hours.' },
+    ],
+    strategy:
+`**Part 1 hỏi về bạn và cuộc sống hằng ngày.** Giám khảo muốn nghe bạn nói tự nhiên, không phải bài văn học thuộc. Mỗi câu trả lời nên khoảng **2–4 câu (15–25 giây)**.
+
+**Công thức A-R-E**
+- **A – Answer:** trả lời thẳng vào câu hỏi. *Yes, quite often.* / *Usually in the afternoon.*
+- **R – Reason:** đưa lý do. *…because I have classes from 7 a.m.*
+- **E – Example / Extra:** thêm ví dụ, chi tiết, hoặc so sánh. *For example, last Monday I…* / *When I was younger, I… but now…*
+
+**Bốn cách kéo dài câu trả lời khi bí ý**
+- So sánh quá khứ – hiện tại: *I used to…, but these days…*
+- Nói về tần suất: *usually / sometimes / hardly ever*
+- Thêm cảm xúc: *which is quite annoying / which I really enjoy*
+- Nói điều ngược lại: *However, at weekends…*
+
+**Lưu ý:** Không bắt đầu bằng "In my opinion, I think…" ở Part 1 — đây là câu hỏi về bạn, cứ trả lời tự nhiên như nói chuyện.`,
+    questions: [
+      { text: 'Do you work or are you a student?', cue: '', prep: 0, speak: 25 },
+      { text: 'What do you enjoy most about your studies?', cue: '', prep: 0, speak: 25 },
+      { text: 'At what time of day do you usually feel most tired?', cue: '', prep: 0, speak: 25 },
+      { text: 'What do you usually do to get your energy back?', cue: '', prep: 0, speak: 25 },
+      { text: 'Does feeling tired affect your studies? In what way?', cue: '', prep: 0, speak: 30 },
+      { text: 'Did you often feel tired when you were a child?', cue: '', prep: 0, speak: 30 },
+      { text: 'Why do so many young people seem tired these days?', cue: '', prep: 0, speak: 30 },
+    ],
+    models: [
+      {
+        question: 'At what time of day do you usually feel most tired?',
+        b1: `I usually feel tired in the afternoon. I have classes from seven in the morning, so after lunch I feel very sleepy. Sometimes I sleep a little in the library.`,
+        b2: `Definitely in the early afternoon, around two o'clock. My classes start at seven in the morning, so by the time I've had lunch I feel **completely worn out**. If I have a free period, I **take a quick power nap** in the library, which really helps me **recharge my batteries**.`,
+        note: 'B2 dùng trạng từ nhấn mạnh (Definitely), cụm từ cố định (worn out, power nap, recharge my batteries) và mệnh đề "which…" để nối ý.',
+      },
+      {
+        question: 'Does feeling tired affect your studies? In what way?',
+        b1: `Yes, it does. When I am tired, I cannot focus on the lesson. I also make many mistakes in my homework.`,
+        b2: `Yes, quite a lot, to be honest. When I'm tired, I **lose concentration** really easily and I have to read the same paragraph two or three times. Last semester I **stayed up late** before an exam and I actually made silly mistakes I would never normally make.`,
+        note: 'B2 thêm ví dụ thật (Last semester…) — đây là phần "E" giúp câu trả lời tự nhiên và dài hơn mà không lan man.',
+      },
+      {
+        question: 'Did you often feel tired when you were a child?',
+        b1: `No, not really. When I was a child, I played a lot but I slept early. Now I am busier, so I feel tired more often.`,
+        b2: `Not really. As a child I **used to** run around all day, but I went to bed at nine, so I always had plenty of energy. **These days**, with **a hectic schedule** of classes and a part-time job, I feel tired far more often than I did back then.`,
+        note: 'Câu hỏi về quá khứ → dùng thì quá khứ đơn hoặc "used to". Kết bằng so sánh với hiện tại.',
+      },
+    ],
+    errors: [
+      { wrong: 'I feel very tiring after class.', right: 'I feel very tired after class.', explain: '"tired" = người cảm thấy mệt; "tiring" = việc gây mệt. Ví dụ: Studying all day is tiring, so I feel tired.' },
+      { wrong: 'I very like my major.', right: 'I really like my major. / I like my major very much.', explain: 'Dịch từ "rất thích". "very" không đứng trước động từ.' },
+      { wrong: 'My class start at seven.', right: 'My class starts at seven.', explain: 'Ngôi thứ ba số ít thêm -s, và phải phát âm rõ âm /s/ cuối — người Việt hay nuốt âm cuối.' },
+      { wrong: 'When I was a child, I usually go to bed early.', right: 'When I was a child, I usually went / used to go to bed early.', explain: 'Nói về quá khứ thì động từ cũng phải ở quá khứ.' },
+      { wrong: 'I am study at Can Tho University.', right: 'I study at / I\'m studying at Can Tho University.', explain: 'Không dùng "am" + động từ nguyên mẫu.' },
+      { wrong: 'tired đọc thành "tai"', right: '/ˈtaɪəd/ — có âm /d/ nhẹ ở cuối', explain: 'Luyện âm cuối /d/, /t/, /s/, /z/: tired, worked, starts, studies.' },
+    ],
+    task: {
+      prompt: 'Ghi âm **một lần** trả lời 5 câu hỏi dưới đây, giống như đang thi Part 1. Đọc câu hỏi to (hoặc nói "Question 1…"), rồi trả lời mỗi câu khoảng 15–25 giây theo A-R-E. Không cần chuẩn bị trước — Part 1 trong bài thi không có thời gian chuẩn bị.',
+      cue:
+`- Do you work or are you a student?
+- What do you enjoy most about your studies?
+- At what time of day do you usually feel most tired?
+- What do you usually do to get your energy back?
+- Why do so many young people seem tired these days?`,
+      prep: 0, speak: 180,
+    },
+    self_check: [
+      'Mỗi câu trả lời có ít nhất 2 câu (Answer + Reason/Example).',
+      'Tôi đã dùng ít nhất 3 cụm từ trong phần Từ vựng.',
+      'Tôi dùng thì quá khứ khi nói về quá khứ.',
+      'Tôi phát âm rõ âm cuối (-s, -ed, /d/, /t/).',
+      'Tôi không dừng quá lâu giữa các câu.',
+    ],
+    attachments: [],
+  },
+},
+// ---------------------------------------------------------------------
+{
+  kind: 'lesson', part: 2, level: 'B1-B2', topic: 'People',
+  title: 'Part 2 · Describe someone older than you whom you admire',
+  summary: 'Dùng 1 phút ghi chú hiệu quả và nói liên tục 1,5–2 phút theo cấu trúc 4 bước.',
+  content: {
+    objectives: [
+      'Dùng 1 phút chuẩn bị để ghi từ khoá theo 4 ý của cue card, không viết câu hoàn chỉnh.',
+      'Nói liên tục 1,5–2 phút theo cấu trúc: Giới thiệu → Bối cảnh → Câu chuyện → Lý do/cảm xúc.',
+      'Dùng tính từ và cụm từ miêu tả người ở mức B1–B2 (patient, generous, a role model…).',
+      'Giữ đúng đại từ he/she và thì quá khứ khi kể chuyện.',
+    ],
+    warmup:
+`Nghĩ về 3 người lớn tuổi hơn bạn (ông bà, thầy cô, anh chị, sếp, hàng xóm…). Với mỗi người, nói nhanh **một câu**:
+
+- *My grandmother is someone who…*
+- *My English teacher always…*
+- *My older cousin once…*
+
+Chọn người mà bạn có **một câu chuyện cụ thể** để kể — đó sẽ là nhân vật cho bài nói Part 2. Câu chuyện thật giúp bạn nói trôi chảy hơn nhiều so với liệt kê tính từ.`,
+    vocabulary: [
+      { term: 'look up to someone', meaning: 'ngưỡng mộ, kính trọng ai', example: 'I have always looked up to my uncle.' },
+      { term: 'a role model', meaning: 'tấm gương', example: 'She has been a real role model for me.' },
+      { term: 'hard-working / diligent', meaning: 'chăm chỉ, cần cù', example: 'He is the most hard-working person I know.' },
+      { term: 'patient and caring', meaning: 'kiên nhẫn và chu đáo', example: 'My grandmother is patient and caring with everyone.' },
+      { term: 'make sacrifices', meaning: 'hy sinh', example: 'My parents made a lot of sacrifices for my education.' },
+      { term: 'face difficulties / overcome challenges', meaning: 'đối mặt/vượt qua khó khăn', example: 'She overcame many challenges to open her own shop.' },
+      { term: 'give someone advice', meaning: 'cho ai lời khuyên', example: 'He always gives me practical advice.' },
+      { term: '(ten) years older than me', meaning: 'lớn hơn tôi (10) tuổi', example: 'My cousin is ten years older than me.' },
+      { term: 'have a positive influence on', meaning: 'có ảnh hưởng tích cực tới', example: 'Her attitude had a positive influence on my studies.' },
+      { term: 'I really respect the way she …', meaning: 'tôi thật sự trân trọng cách cô ấy …', example: 'I really respect the way she treats her students.' },
+    ],
+    strategy:
+`**Part 2 (3–4 phút):** giám khảo đưa cue card, bạn có **1 phút** chuẩn bị và được ghi chú, rồi nói **1–2 phút**. Sau đó giám khảo có thể hỏi thêm 1–2 câu ngắn.
+
+**Ghi chú trong 1 phút — chỉ viết từ khoá**
+- Who: *Aunt Lan – 45 – nurse*
+- How: *lived with us – I was 15*
+- What: *night shifts – COVID – volunteer*
+- Why: *calm – kind – never complains → I want to be like her*
+
+**Cấu trúc 4 bước khi nói**
+- **Mở đầu (10s):** *I'd like to talk about…, who is…*
+- **Bối cảnh (20–30s):** quan hệ, cách bạn biết người đó, người đó làm gì.
+- **Câu chuyện (40–50s):** **một** sự việc cụ thể — dùng thì quá khứ. *I remember one time when…*
+- **Lý do & cảm xúc (30s):** *What I admire most is… / Thanks to her, I…*
+
+**Nếu còn thời gian:** thêm điều bạn học được, hoặc so sánh người đó với người khác. Đừng dừng ở 1 phút — cố gắng nói đến khi giám khảo bảo dừng.`,
+    questions: [
+      { text: 'Practice 1 – Introduce the person in 20 seconds: who they are and how you know them.', cue: '', prep: 15, speak: 20 },
+      { text: 'Practice 2 – Tell one short story about this person. Use the past tense.', cue: '', prep: 20, speak: 45 },
+      { text: 'Practice 3 – Explain why you admire this person. Use at least two phrases from the vocabulary list.', cue: '', prep: 15, speak: 30 },
+      {
+        text: 'Full cue card – speak for 1–2 minutes.',
+        cue:
+`**Describe someone older than you whom you admire.**
+
+You should say:
+- who this person is
+- how you know this person
+- what this person does
+- and explain why you admire him or her.`,
+        prep: 60, speak: 120,
+      },
+      { text: 'Follow-up question: Do you think you will become like this person in the future?', cue: '', prep: 0, speak: 20 },
+    ],
+    models: [
+      {
+        question: 'Describe someone older than you whom you admire.',
+        b1:
+`I want to talk about my aunt. Her name is Lan and she is about forty-five years old. She is a nurse in a hospital in Can Tho.
+
+I know her very well because when I was fifteen, I lived with her family for one year. She worked very hard. She often worked at night and came home very tired, but she was always kind to me. She helped me with my homework and cooked for everyone.
+
+I remember during COVID, she worked in the hospital for many weeks. She did not complain. She said that helping people is her job.
+
+I admire her because she is kind and hard-working. She never complains. I want to be like her in the future.`,
+        b2:
+`I'd like to talk about my aunt Lan, who's about twenty years older than me and works as a nurse at a hospital in Can Tho.
+
+I got to know her really well when I was fifteen, because I lived with her family for a year while I was studying in the city. Back then she was working night shifts, so she often came home exhausted, but she still found time to check my homework and cook for the whole family.
+
+What I remember most is the COVID period. She volunteered to stay at the hospital for several weeks and only spoke to us through video calls. She never once complained; she simply said that this was what nurses were for.
+
+The reason I **look up to** her is not only that she's **hard-working**, but also the way she stays calm under pressure. She has **had a positive influence on** me — whenever I feel stressed about exams, I think about what she went through and my problems suddenly seem much smaller. She's definitely **a role model** for me.`,
+        note: 'B2 dùng mệnh đề quan hệ (who\'s…), thì quá khứ tiếp diễn để tả bối cảnh (was working night shifts), cấu trúc "not only… but also…" và kết bằng ảnh hưởng tới bản thân.',
+      },
+      {
+        question: 'Follow-up: Do you think you will become like this person in the future?',
+        b1: `I hope so. I want to be kind like her, but I am not very patient now.`,
+        b2: `I'd like to think so, although I'm not sure I'm as patient as she is. I'm working on it, though — I try to stay calm instead of getting annoyed when things go wrong.`,
+        note: 'Câu hỏi phụ cuối Part 2 chỉ cần 1–3 câu, trả lời ngắn gọn.',
+      },
+    ],
+    errors: [
+      { wrong: 'She is older than me ten years.', right: 'She is ten years older than me.', explain: 'Số năm đứng trước "older". Dịch theo trật tự tiếng Việt sẽ sai.' },
+      { wrong: 'My aunt is very kind. He always helps me.', right: 'My aunt is very kind. She always helps me.', explain: 'Tiếng Việt nói "cô ấy/anh ấy" theo vai vế, người học hay lẫn he/she khi nói nhanh. Hãy tự kiểm tra trong bản ghi âm.' },
+      { wrong: 'She is hard-working person.', right: 'She is a hard-working person.', explain: 'Danh từ đếm được số ít cần mạo từ "a/an".' },
+      { wrong: 'She is very kind with me.', right: 'She is very kind to me.', explain: 'Cụm cố định: kind to someone.' },
+      { wrong: 'She made me to feel better.', right: 'She made me feel better.', explain: 'make + người + động từ nguyên mẫu không "to".' },
+      { wrong: 'When I was fifteen, she teach me how to cook.', right: 'When I was fifteen, she taught me how to cook.', explain: 'Phần "câu chuyện" luôn ở quá khứ. Ghi chữ "PAST" trong ghi chú 1 phút để tự nhắc.' },
+    ],
+    task: {
+      prompt: 'Bấm **Bắt đầu**: bạn có **1 phút** chuẩn bị (ghi từ khoá ra giấy), đồng hồ sẽ tự chuyển sang ghi âm **2 phút**. Cố gắng nói tới gần hết thời gian. Nếu nói xong sớm, bấm Dừng.',
+      cue:
+`**Describe someone older than you whom you admire.**
+
+You should say:
+- who this person is
+- how you know this person
+- what this person does
+- and explain why you admire him or her.`,
+      prep: 60, speak: 120,
+    },
+    self_check: [
+      'Tôi nói được ít nhất 1 phút 30 giây.',
+      'Tôi trả lời đủ 4 ý của cue card.',
+      'Tôi kể một câu chuyện cụ thể và dùng thì quá khứ.',
+      'Tôi dùng đúng he/she trong suốt bài nói.',
+      'Tôi dùng ít nhất 3 cụm từ trong phần Từ vựng.',
+    ],
+    attachments: [],
+  },
+},
+// ---------------------------------------------------------------------
+{
+  kind: 'lesson', part: 3, level: 'B2', topic: 'People',
+  title: 'Part 3 · Older generations and role models',
+  summary: 'Thảo luận vấn đề chung: nêu quan điểm, giải thích, cho ví dụ và cân nhắc mặt trái (O-R-E-C).',
+  content: {
+    objectives: [
+      'Phân biệt Part 3 với Part 1: nói về xã hội, con người nói chung — không chỉ bản thân.',
+      'Phát triển câu trả lời 30–45 giây theo O-R-E-C: Opinion – Reason – Example – Contrast/Consequence.',
+      'Dùng ngôn ngữ rào đón (hedging) và so sánh: it depends on…, to some extent, compared with…',
+      'Nói về xu hướng và thay đổi ở Việt Nam với các thì hiện tại hoàn thành và so sánh hơn.',
+    ],
+    warmup:
+`Đọc nhanh 3 nhận định dưới đây. Với mỗi câu, giơ tay (hoặc tự ghi) **Agree / Disagree / It depends**, rồi nói **một lý do** trong 15 giây.
+
+- *Young people today learn more from the internet than from older people.*
+- *Grandparents should help to raise their grandchildren.*
+- *Famous people have a responsibility to be good role models.*
+
+Ở Part 3, "It depends" là một câu trả lời rất tốt — **nếu** bạn giải thích nó phụ thuộc vào điều gì.`,
+    vocabulary: [
+      { term: 'the older generation / the elderly', meaning: 'thế hệ lớn tuổi / người cao tuổi', example: 'The older generation often has valuable life experience.' },
+      { term: 'the generation gap', meaning: 'khoảng cách thế hệ', example: 'The generation gap is wider because technology changes so fast.' },
+      { term: 'pass down (knowledge / traditions)', meaning: 'truyền lại', example: 'Grandparents pass down traditional recipes and customs.' },
+      { term: 'life experience', meaning: 'kinh nghiệm sống', example: 'You cannot learn life experience from a textbook.' },
+      { term: 'tech-savvy', meaning: 'rành công nghệ', example: 'Young people are generally more tech-savvy than their parents.' },
+      { term: 'to some extent', meaning: 'ở một mức độ nào đó', example: 'To some extent, social media shapes who young people admire.' },
+      { term: 'it largely depends on …', meaning: 'phần lớn phụ thuộc vào …', example: 'It largely depends on the family and the person\'s background.' },
+      { term: 'compared with (the past)', meaning: 'so với (trước đây)', example: 'Compared with the past, fewer families live with their grandparents.' },
+      { term: 'extended family / nuclear family', meaning: 'đại gia đình / gia đình hạt nhân', example: 'In Vietnam, the extended family is still important.' },
+      { term: 'set a good example', meaning: 'làm gương tốt', example: 'Teachers should set a good example for their students.' },
+    ],
+    strategy:
+`**Part 3 (4–5 phút)** là phần thảo luận hai chiều, liên quan tới chủ đề Part 2 nhưng **trừu tượng hơn**: giám khảo hỏi về xã hội, xu hướng, nguyên nhân, so sánh. Mỗi câu trả lời nên khoảng **30–45 giây**.
+
+**Công thức O-R-E-C**
+- **O – Opinion:** *I'd say… / I think, to some extent, …*
+- **R – Reason:** *This is mainly because…*
+- **E – Example:** ví dụ về xã hội, đất nước, người bạn biết. *For instance, in Vietnam…*
+- **C – Contrast/Consequence:** *However, … / As a result, …*
+
+**Dạng câu hỏi thường gặp và cách mở đầu**
+- So sánh quá khứ – hiện tại → *Compared with my grandparents' time, …*
+- Nguyên nhân → *There are a couple of reasons. Firstly… Secondly…*
+- Ưu – nhược → *On the one hand… On the other hand…*
+- Dự đoán → *I suspect that in the future… / It's likely that…*
+
+**Lưu ý:** Đừng nói tuyệt đối (*All young people…*). Dùng *many / most / tend to / generally* để câu trả lời thuyết phục hơn.`,
+    questions: [
+      { text: 'What qualities make someone a good role model?', cue: '', prep: 0, speak: 45 },
+      { text: 'Do young people today admire celebrities more than members of their own family? Why?', cue: '', prep: 0, speak: 45 },
+      { text: 'What can young people learn from older people?', cue: '', prep: 0, speak: 45 },
+      { text: 'Is it harder for older people to learn new technology? Why or why not?', cue: '', prep: 0, speak: 45 },
+      { text: 'How has the relationship between grandparents and grandchildren in Vietnam changed compared with the past?', cue: '', prep: 0, speak: 45 },
+      { text: 'Should companies employ more older workers? Why?', cue: '', prep: 0, speak: 45 },
+    ],
+    models: [
+      {
+        question: 'Do young people today admire celebrities more than members of their own family? Why?',
+        b1: `Yes, I think so. Young people use social media every day and they see celebrities all the time. Celebrities are rich and beautiful, so young people want to be like them. But some people still admire their parents.`,
+        b2: `To some extent, yes. Because teenagers spend hours on social media, celebrities and influencers are constantly in front of them, so they **tend to** see them as successful and glamorous. For instance, many of my younger cousins dream of becoming TikTok creators. **However**, I'd say that when it comes to serious decisions, like choosing a university, most young people **still turn to** their parents, so family members **remain** the more practical role models.`,
+        note: 'B2 rào đón (To some extent, tend to), đưa ví dụ cụ thể và có ý đối lập (However…) để câu trả lời cân bằng.',
+      },
+      {
+        question: 'What can young people learn from older people?',
+        b1: `They can learn many things. Old people have a lot of experience, so they can give good advice. For example, my grandfather teaches me how to save money.`,
+        b2: `Quite a lot, actually. The most valuable thing is probably **life experience** — older people have already been through difficulties that young people are only starting to face, so their advice can stop us from making the same mistakes. My grandfather, for example, lived through very hard times, and he taught me to save part of every pay cheque. Also, older people **pass down** traditions, such as how to prepare for Tết, which might otherwise disappear.`,
+        note: 'Dùng "older people" hoặc "the elderly" thay vì "old people" (nghe thiếu lịch sự). B2 đưa 2 ý có tổ chức: The most valuable thing… / Also…',
+      },
+      {
+        question: 'How has the relationship between grandparents and grandchildren in Vietnam changed compared with the past?',
+        b1: `In the past, grandparents lived with their grandchildren. Now many families live in the city, so they do not see their grandparents often. They only visit them on holidays.`,
+        b2: `**Compared with the past**, I think the relationship has become less close in a physical sense. A generation ago, most families lived in an **extended family**, so grandparents were involved in raising the children every day. Nowadays, many young couples move to cities like Ho Chi Minh City for work, and their children only see their grandparents during Tết. **That said**, video calls have helped a lot, so the emotional bond **hasn't disappeared** — it has just changed form.`,
+        note: 'Câu hỏi "has changed" → dùng hiện tại hoàn thành (has become, hasn\'t disappeared) và so sánh rõ quá khứ – hiện tại.',
+      },
+    ],
+    errors: [
+      { wrong: 'In my opinion, I think that…', right: 'In my opinion, … / I think …', explain: 'Hai cụm cùng nghĩa — chỉ dùng một. Thay đổi cách mở đầu: I\'d say… / From my point of view…' },
+      { wrong: 'All young people only care about celebrities.', right: 'Many young people tend to follow celebrities closely.', explain: 'Khái quát tuyệt đối làm lập luận yếu. Dùng many / most / tend to.' },
+      { wrong: 'The old people have more experience.', right: 'Older people / The elderly have more experience.', explain: '"old people" có thể nghe thiếu tế nhị; nói chung không cần "the" trước danh từ số nhiều.' },
+      { wrong: 'It is more easier for young people.', right: 'It is easier for young people.', explain: 'Tính từ ngắn thêm -er, không dùng thêm "more".' },
+      { wrong: 'People is busier now.', right: 'People are busier now.', explain: '"people" là danh từ số nhiều.' },
+      { wrong: 'Nowadays… Nowadays… Nowadays…', right: 'These days / In recent years / Today / Compared with the past', explain: 'Lặp từ làm giảm điểm Lexical Resource. Chuẩn bị sẵn 3–4 cách nói tương đương.' },
+    ],
+    task: {
+      prompt: 'Ghi âm **một lần** trả lời 4 câu hỏi Part 3 dưới đây. Đọc câu hỏi rồi trả lời mỗi câu khoảng 40–50 giây theo O-R-E-C. Không có thời gian chuẩn bị — giống bài thi thật. Bạn có thể dừng 1–2 giây để suy nghĩ bằng các cụm như "That\'s an interesting question…".',
+      cue:
+`- What qualities make someone a good role model?
+- What can young people learn from older people?
+- Is it harder for older people to learn new technology? Why or why not?
+- How has the relationship between grandparents and grandchildren in Vietnam changed compared with the past?`,
+      prep: 0, speak: 240,
+    },
+    self_check: [
+      'Mỗi câu trả lời có quan điểm, lý do và ví dụ.',
+      'Tôi có ít nhất một ý đối lập hoặc hệ quả (However… / As a result…).',
+      'Tôi nói về con người, xã hội nói chung — không chỉ về bản thân.',
+      'Tôi tránh khái quát tuyệt đối (all, always, never).',
+      'Tôi dùng ít nhất 3 cụm từ trong phần Từ vựng.',
+    ],
+    attachments: [],
+  },
+},
+// ---------------------------------------------------------------------
+{
+  kind: 'mock_test', part: null, level: 'B1-B2', topic: 'Decisions',
+  title: 'Thi thử Speaking · Đề 1 (kỳ 9–12/2026)',
+  summary: 'Đủ 3 phần như thi thật, khoảng 11–14 phút. Ghi âm và nộp từng phần.',
+  content: {
+    intro:
+`Bài thi Speaking IELTS gồm **3 phần, kéo dài 11–14 phút**, là cuộc phỏng vấn trực tiếp với giám khảo.
+
+- **Part 1 (4–5 phút):** câu hỏi về bản thân và chủ đề quen thuộc.
+- **Part 2 (3–4 phút):** 1 phút chuẩn bị, nói 1–2 phút theo cue card.
+- **Part 3 (4–5 phút):** thảo luận các câu hỏi rộng hơn liên quan tới chủ đề Part 2.
+
+**Cách làm trên website:** làm lần lượt từng phần. Mỗi phần bấm **Bắt đầu**, đọc to câu hỏi rồi trả lời liên tục, sau đó nghe lại và **nộp**. Hãy làm cả 3 phần trong một lần ngồi, ở nơi yên tĩnh, để quen với áp lực thời gian như thi thật. Không dừng lại để tra từ.`,
+    sections: [
+      {
+        key: 'part1', part: 1, title: 'Part 1 – Introduction and interview',
+        instructions: 'Đọc to từng câu hỏi rồi trả lời 15–25 giây/câu. Ghi âm liên tục cả phần (tối đa 5 phút).',
+        questions:
+`Let's talk about what you do. Do you work or are you a student?
+Why did you choose your subject or job?
+Now let's talk about rubbish and recycling. Do you separate your rubbish at home?
+What do you throw away most often?
+Did you learn about recycling at school when you were younger?
+Do you think people in your city recycle more than they did ten years ago?
+Is there anything you would like to reuse instead of throwing away?`,
+        cue: '', prep: 0, speak: 300,
+      },
+      {
+        key: 'part2', part: 2, title: 'Part 2 – Individual long turn',
+        instructions: 'Bạn có 1 phút chuẩn bị và ghi chú, sau đó nói 1–2 phút. Đồng hồ tự chuyển sang ghi âm. Cuối phần, tự trả lời câu hỏi phụ: "Would you make the same decision again?"',
+        questions: '',
+        cue:
+`**Describe an important decision you made and were happy with the result.**
+
+You should say:
+- what the decision was
+- when you made it
+- how you made the decision
+- and explain why you were happy with the result.`,
+        prep: 60, speak: 135,
+      },
+      {
+        key: 'part3', part: 3, title: 'Part 3 – Two-way discussion',
+        instructions: 'Đọc to từng câu hỏi và trả lời 30–45 giây/câu, có lý do và ví dụ.',
+        questions:
+`What kinds of decisions do young people in Vietnam usually make by themselves?
+Should parents make important decisions for their children, such as choosing a university?
+Why do some people find it difficult to make decisions?
+Is it better to make decisions quickly or to take a long time? Why?
+Do you think people today have too many choices? Why?`,
+        cue: '', prep: 0, speak: 300,
+      },
+    ],
+    self_check: [
+      'Tôi làm bài liên tục, không dừng để tra từ.',
+      'Tôi trả lời đúng trọng tâm từng câu hỏi.',
+      'Part 2: tôi nói được ít nhất 1 phút 30 giây và đủ 4 ý.',
+      'Part 3: mỗi câu trả lời có lý do và ví dụ.',
+    ],
+    attachments: [],
+  },
+},
+];
